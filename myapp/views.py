@@ -65,43 +65,78 @@ def raz_pay(request, amount):
 # ==========================================
 # SAVE ORDER TO SUPABASE - FIXED VERSION
 # ==========================================
+
 def save_order_to_supabase(name, email, phone, address, quantity, payment_id):
-    """Save order to Supabase database"""
     try:
-        # Your Supabase credentials - DIRECT values
+        print("===== SUPABASE FUNCTION STARTED =====")
+
         supabase_url = "https://uuzumstwtrgzmeqgkjrj.supabase.co"
         supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV1enVtc3R3dHJnem1lcWdranJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1MDgwNTEsImV4cCI6MjA5NzA4NDA1MX0.gW9eWtVM03c-9Rv42VbbXUSN1RvHqzvHTtinFdK0_8U"
         
-        # Create client
         supabase = create_client(supabase_url, supabase_key)
-        
-        # Get next order number by counting existing orders
-        try:
-            response = supabase.table('brasscleaner_orders').select('id', count='exact').execute()
-            order_no = response.count + 1 if response.count else 1
-        except Exception as e:
-            print(f"Could not get count: {e}")
-            order_no = 1
-        
-        # Insert order
+
         order_data = {
-            "order_no": order_no,
-            "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "customer_name": name,
             "email": email,
             "phone": phone,
             "address": address,
             "quantity": quantity,
-            "payment_id": payment_id
+            "payment_id": payment_id,
+            "payment_status": "Success"
         }
-        
-        result = supabase.table('brasscleaner_orders').insert(order_data).execute()
-        print(f"✅ Order #{order_no} saved to Supabase")
+
+        print("ORDER DATA:", order_data)
+
+        result = supabase.table("brasscleaner_orders").insert(order_data).execute()
+
+        print("SUPABASE RESULT:", result)
+
         return True
-        
+
     except Exception as e:
-        print(f"❌ Supabase error: {str(e)}")
+        import traceback
+        print("===== SUPABASE ERROR =====")
+        print(traceback.format_exc())
         return False
+    
+
+# def save_order_to_supabase(name, email, phone, address, quantity, payment_id):
+#     """Save order to Supabase database"""
+#     try:
+#         # Your Supabase credentials - DIRECT values
+#         supabase_url = "https://uuzumstwtrgzmeqgkjrj.supabase.co"
+#         supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV1enVtc3R3dHJnem1lcWdranJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1MDgwNTEsImV4cCI6MjA5NzA4NDA1MX0.gW9eWtVM03c-9Rv42VbbXUSN1RvHqzvHTtinFdK0_8U"
+        
+#         # Create client
+#         supabase = create_client(supabase_url, supabase_key)
+        
+#         # Get next order number by counting existing orders
+#         try:
+#             response = supabase.table('brasscleaner_orders').select('id', count='exact').execute()
+#             order_no = response.count + 1 if response.count else 1
+#         except Exception as e:
+#             print(f"Could not get count: {e}")
+#             order_no = 1
+        
+#         # Insert order
+#         order_data = {
+#             "order_no": order_no,
+#             "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+#             "customer_name": name,
+#             "email": email,
+#             "phone": phone,
+#             "address": address,
+#             "quantity": quantity,
+#             "payment_id": payment_id
+#         }
+        
+#         result = supabase.table('brasscleaner_orders').insert(order_data).execute()
+#         print(f"✅ Order #{order_no} saved to Supabase")
+#         return True
+        
+#     except Exception as e:
+#         print(f"❌ Supabase error: {str(e)}")
+#         return False
 
 
 def send_whatsapp_message(name, phone, quantity):
@@ -262,7 +297,17 @@ def userpayment_post(request):
         
         # 2. Save to Supabase (non-critical)
         try:
-            save_order_to_supabase(name, email, phone, address, quantity, payment_id)
+            # save_order_to_supabase(name, email, phone, address, quantity, payment_id)
+            saved = save_order_to_supabase(
+                name,
+                email,
+                phone,
+                address,
+                quantity,
+                payment_id
+            )
+
+            print("SAVE RESULT =", saved)
         except Exception as e:
             print(f"❌ Supabase save error: {str(e)}")
         
