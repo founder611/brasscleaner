@@ -74,7 +74,7 @@ def save_order_to_supabase(name, email, phone, address, quantity, payment_id):
         print("===== SUPABASE FUNCTION STARTED =====")
 
         supabase_url = "https://uuzumstwtrgzmeqgkjrj.supabase.co"
-        supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV1enVtc3R3dHJnem1lcWdranJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1MDgwNTEsImV4cCI6MjA5NzA4NDA1MX0.gW9eWtVM03c-9Rv42VbbXUSN1RvHqzvHTtinFdK0_8U"
+        supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV1enVtc3R3dHJnem1lcWdranJqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MTUwODA1MSwiZXhwIjoyMDk3MDg0MDUxfQ.lZlydZ_sVQhcBteBBX1mucA_ZbmlkOS7yUVO8gYCV6U"
         
         supabase = create_client(supabase_url, supabase_key)
 
