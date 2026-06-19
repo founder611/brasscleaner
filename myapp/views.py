@@ -4,8 +4,9 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from django.shortcuts import render
 from django.http import HttpResponse
-from datetime import datetime
 import requests
+from datetime import datetime
+
 
 # Import Supabase
 from supabase import create_client
@@ -23,6 +24,8 @@ def order_post(request):
     if quantity == "100ml":
         amount = 1 * 100
     elif quantity == "200ml":
+        amount = 1 * 100
+    elif quantity == "500ml":
         amount = 1 * 100
     else:
         amount = 0
