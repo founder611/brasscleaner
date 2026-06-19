@@ -220,6 +220,12 @@ def userpayment_post(request):
         address = request.POST.get('address')
         quantity = request.POST.get('quantity')
         payment_id = request.POST.get('payment_id')
+
+
+        try:
+            amount = float(amount) / 100   # Paisa → Rupees
+        except:
+            amount = 0
         
         if not email:
             return HttpResponse("Email not found")
