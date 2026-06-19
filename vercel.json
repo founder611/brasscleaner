@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "karpooram/wsgi.py",
+      "src": "brasscleaner/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "15mb"
@@ -24,7 +24,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "karpooram/wsgi.py"
+      "dest": "brasscleaner/wsgi.py"
     }
   ]
 }
