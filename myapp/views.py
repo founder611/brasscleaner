@@ -69,7 +69,7 @@ def raz_pay(request, amount):
 # SAVE ORDER TO SUPABASE - FIXED VERSION
 # ==========================================
 
-def save_order_to_supabase(name, email, phone, address, quantity, payment_id):
+def save_order_to_supabase(name, email, phone, address, quantity, amount, payment_id):
     try:
         print("===== SUPABASE FUNCTION STARTED =====")
 
@@ -84,6 +84,7 @@ def save_order_to_supabase(name, email, phone, address, quantity, payment_id):
             "phone": phone,
             "address": address,
             "quantity": quantity,
+            "amount": amount,
             "payment_id": payment_id,
             "payment_status": "Success"
         }
@@ -215,6 +216,7 @@ def userpayment_post(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         phone = request.POST.get('phone')
+        amount = request.POST.get('amount')
         address = request.POST.get('address')
         quantity = request.POST.get('quantity')
         payment_id = request.POST.get('payment_id')
@@ -249,6 +251,7 @@ def userpayment_post(request):
             <p><b>📞 Phone:</b> {phone}</p>
             <p><b>📍 Address:</b> {address}</p>
             <p><b>📦 Quantity:</b> {quantity}</p>
+            <p><b>💰 Amount:</b> ₹{amount}</p>
             <p><b>💳 Payment ID:</b> {payment_id}</p>
             </div>
             </div>
@@ -265,6 +268,7 @@ def userpayment_post(request):
             <p><b>Phone:</b> {phone}</p>
             <p><b>Address:</b> {address}</p>
             <p><b>Quantity:</b> {quantity}</p>
+            <p><b>Amount:</b> ₹{amount}</p>
             <p><b>Payment ID:</b> {payment_id}</p>
             </body>
             </html>
@@ -307,6 +311,7 @@ def userpayment_post(request):
                 phone,
                 address,
                 quantity,
+                amount,
                 payment_id
             )
 
