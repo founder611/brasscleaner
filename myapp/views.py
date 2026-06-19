@@ -241,7 +241,7 @@ def userpayment_post(request):
             <body style="font-family: Arial; background:#f4f4f4; padding:30px;">
             <div style="max-width:600px; margin:auto; background:white; border-radius:15px; padding:30px;">
             <h1 style="color:#0b7d45; text-align:center;">🌿 ECOMONKS</h1>
-            <h2>Thank You For Your Order</h2>
+            <h2>Thank You For Your Ordering Brass Cleaner</h2>
             <p>Dear <b>{name}</b>,</p>
             <p>Your payment has been received successfully and your order is confirmed.</p>
             <div style="background:#f7fff9; border:1px solid #d4f5dd; padding:20px; border-radius:10px;">
