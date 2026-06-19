@@ -69,15 +69,15 @@ def save_order_to_supabase(name, email, phone, address, quantity, payment_id):
     """Save order to Supabase database"""
     try:
         # Your Supabase credentials - DIRECT values
-        supabase_url = "https://fgikrpxjaskyduewekiu.supabase.co"
-        supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZnaWtycHhqYXNreWR1ZXdla2l1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTg3MDUsImV4cCI6MjA5NTkzNDcwNX0.kyIphJzU-gNIEvA2rXAWAKy6lC4Vur362U2lFWm6BtI"
+        supabase_url = "https://uuzumstwtrgzmeqgkjrj.supabase.co"
+        supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV1enVtc3R3dHJnem1lcWdranJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1MDgwNTEsImV4cCI6MjA5NzA4NDA1MX0.gW9eWtVM03c-9Rv42VbbXUSN1RvHqzvHTtinFdK0_8U"
         
         # Create client
         supabase = create_client(supabase_url, supabase_key)
         
         # Get next order number by counting existing orders
         try:
-            response = supabase.table('orders').select('id', count='exact').execute()
+            response = supabase.table('brasscleaner_orders').select('id', count='exact').execute()
             order_no = response.count + 1 if response.count else 1
         except Exception as e:
             print(f"Could not get count: {e}")
@@ -95,7 +95,7 @@ def save_order_to_supabase(name, email, phone, address, quantity, payment_id):
             "payment_id": payment_id
         }
         
-        result = supabase.table('orders').insert(order_data).execute()
+        result = supabase.table('brasscleaner_orders').insert(order_data).execute()
         print(f"✅ Order #{order_no} saved to Supabase")
         return True
         
