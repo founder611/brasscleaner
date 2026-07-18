@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>ECOMONKS – Temple Care Sacred Shine Formula</title>
+    <link rel="icon" type="image/jpeg" href="{% static 'homepage/img/logo.jpeg' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Instant Brass &amp; Copper Cleaner – Plant-Based, Non-Toxic, Temple Grade Shine">
     <style>body{background:#F4F6F5}.navbar{background:rgba(28,36,41,0.97)}</style>
@@ -1067,6 +1068,95 @@
 </head>
 <body>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Divya Bhimseni Karpooram (Edible Camphor)",
+      "image": [
+        "{% static 'homepage/img/img3.jpeg' %}",
+        "{% static 'homepage/img/img1.jpeg' %}",
+        "{% static 'homepage/img/img2.jpeg' %}"
+      ],
+      "description": "Premium temple-grade Divya Bhimseni Karpooram (edible camphor), 100% natural with no synthetic chemicals. Ideal for daily pooja, havan, meditation and aromatherapy.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Ecomonks"
+      },
+      "sku": "ECOM-KARP-01",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "50g Pack",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.ecomonks.in/karpooram/",
+          "itemCondition": "https://schema.org/NewCondition"
+        },
+        {
+          "@type": "Offer",
+          "name": "175g Pack",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.ecomonks.in/karpooram/",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "6"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Organization",
+      "name": "Ecomonks",
+      "url": "https://www.ecomonks.in/",
+      "logo": "{% static 'homepage/img/logo.jpeg' %}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Yathisha Bliss Global Avenue Opp SIB Aranattukara",
+        "addressLocality": "Thrissur",
+        "addressRegion": "Kerala",
+        "postalCode": "680004",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-7204610007",
+        "contactType": "customer service",
+        "email": "Founder@ecomonks.in"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: Breadcrumb -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ecomonks.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Divya Bhimseni Karpooram",
+          "item": "https://www.ecomonks.in/karpooram/"
+        }
+      ]
+    }
+    </script>
+
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
     <a href="#" class="navbar-brand">
@@ -1222,90 +1312,104 @@
     <div class="container">
         <div class="video-header">
             <div class="section-label">Watch Our Videos</div>
-            <h2 class="section-heading">See the <em>Transformation</em></h2>
-            <p class="video-subtitle">Witness brass and copper restored to a temple-grade shine</p>
+            <h2 class="section-heading">Explore <em>Divine Moments</em></h2>
+            <p class="video-subtitle">
+                Witness the purity and traditional craftsmanship behind every batch of Bhimseni Karpooram.
+            </p>
         </div>
+
         <div class="videos-slider-wrapper">
             <button class="scroll-btn left-btn" id="scrollLeft">&#10094;</button>
+
             <div class="videos-scroll" id="videosScroll">
+
+                <!-- Video 1 -->
                 <div class="video-card">
-                    <div class="youtube-embed">
-                        <iframe width="100%" height="560" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" title="Instant Brass Shine" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=ZUTLEthA94E" target="_blank" class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/ZUTLEthA94E/maxresdefault.jpg" alt="Pure Bhimseni Camphor">
+                        <div class="play-btn">▶</div>
+                    </a>
+                    <div class="video-title">
+                        <h4>Pure Bhimseni Camphor</h4>
+                        <p>Premium A++ Grade</p>
                     </div>
-                    <div class="video-title"><h4>Instant Brass Shine</h4><p>Sacred Shine Formula</p></div>
                 </div>
+
+                <!-- Video 2 -->
                 <div class="video-card">
-                    <div class="youtube-embed">
-                        <iframe width="100%" height="560" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" title="Copper Restoration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a href="https://youtube.com/shorts/OAzAp8QV-uc?si=lim9ieV-72O1Kgb7" target="_blank" class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/OAzAp8QV-uc/maxresdefault.jpg" alt="Traditional Craftsmanship">
+                        <div class="play-btn">▶</div>
+                    </a>
+                    <div class="video-title">
+                        <h4>Traditional Craftsmanship</h4>
+                        <p>Temple Quality</p>
                     </div>
-                    <div class="video-title"><h4>Copper Restoration</h4><p>Temple Grade Results</p></div>
                 </div>
+
+                <!-- Video 3 -->
                 <div class="video-card">
-                    <div class="youtube-embed">
-                        <iframe width="100%" height="560" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" title="Idol Cleaning Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a href="https://youtube.com/shorts/EFV3-zjotD0?si=DmWJ2kZDXRjxA5IA" target="_blank" class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/EFV3-zjotD0/maxresdefault.jpg" alt="Divine Aroma">
+                        <div class="play-btn">▶</div>
+                    </a>
+                    <div class="video-title">
+                        <h4>Divine Aroma</h4>
+                        <p>Long Lasting Fragrance</p>
                     </div>
-                    <div class="video-title"><h4>Idol Cleaning Demo</h4><p>Gentle &amp; Effective</p></div>
                 </div>
+
+                <!-- Video 4 -->
                 <div class="video-card">
-                    <div class="youtube-embed">
-                        <iframe width="100%" height="560" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" title="Plant-Based Formula" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a href="https://youtube.com/shorts/3lFPJm7iaKA?si=tLgvdYiapo3KQ_W9" target="_blank" class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/3lFPJm7iaKA/maxresdefault.jpg" alt="Spiritual Essence">
+                        <div class="play-btn">▶</div>
+                    </a>
+                    <div class="video-title">
+                        <h4>Spiritual Essence</h4>
+                        <p>Pure Natural Product</p>
                     </div>
-                    <div class="video-title"><h4>Plant-Based Formula</h4><p>Pure Natural Ingredients</p></div>
                 </div>
+
+                <!-- Video 5 -->
                 <div class="video-card">
-                    <div class="youtube-embed">
-                        <iframe width="100%" height="560" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5" title="Temple Metal Care" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <a href="https://youtube.com/shorts/OAzAp8QV-uc?si=lim9ieV-72O1Kgb7" target="_blank" class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/OAzAp8QV-uc/maxresdefault.jpg" alt="Traditional Rituals">
+                        <div class="play-btn">▶</div>
+                    </a>
+                    <div class="video-title">
+                        <h4>Traditional Rituals</h4>
+                        <p>Authentic Bhimseni</p>
                     </div>
-                    <div class="video-title"><h4>Temple Metal Care</h4><p>Trusted for Generations</p></div>
                 </div>
+
             </div>
+
             <button class="scroll-btn right-btn" id="scrollRight">&#10095;</button>
         </div>
     </div>
 </section>
 
 <style>
-.videos-gallery-section { padding: 80px 0; background: #fbf7f0; overflow: hidden; }
-.video-header { text-align: center; margin-bottom: 45px; }
-.video-subtitle { color: #777; margin-top: 10px; }
-.videos-slider-wrapper { position: relative; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
-.videos-scroll {
-    display: -webkit-flex; display: flex;
-    gap: 25px; overflow-x: auto;
-    scroll-behavior: smooth; scrollbar-width: none;
-    -ms-overflow-style: none; width: 100%;
-    -webkit-overflow-scrolling: touch;
-}
-.videos-scroll::-webkit-scrollbar { display: none; }
-.video-card { min-width: 320px; max-width: 320px; -webkit-flex: 0 0 auto; flex: 0 0 auto; }
-.youtube-embed {
-    position: relative; width: 100%; height: 560px;
-    border-radius: 22px; overflow: hidden; background: #000;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-}
-.youtube-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-.video-title { text-align: center; margin-top: 14px; }
-.video-title h4 { font-size: 20px; color: #261c12; margin-bottom: 5px; }
-.video-title p { color: #777; font-size: 14px; }
-.scroll-btn {
-    position: absolute; top: 50%; -webkit-transform: translateY(-50%); transform: translateY(-50%);
-    width: 50px; height: 50px; border: none; border-radius: 50%;
-    background: #2E6E62; color: white; font-size: 24px; cursor: pointer;
-    z-index: 10; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    -webkit-transition: 0.3s; transition: 0.3s;
-}
-.scroll-btn:hover { background: #93602A; -webkit-transform: translateY(-50%) scale(1.08); transform: translateY(-50%) scale(1.08); }
-.left-btn { left: -10px; }
-.right-btn { right: -10px; }
-@media(max-width: 768px) {
-    .video-card { min-width: 240px; max-width: 240px; }
-    .youtube-embed { height: 430px; }
-    .scroll-btn { width: 40px; height: 40px; font-size: 18px; }
-}
-@media(max-width: 480px) {
-    .video-card { min-width: 200px; max-width: 200px; }
-    .youtube-embed { height: 355px; }
-}
+.videos-gallery-section { padding:80px 0; background:#fdf6ec; overflow:hidden; }
+.video-header { text-align:center; margin-bottom:45px; }
+.video-subtitle { color:#777; margin-top:10px; }
+.videos-slider-wrapper { position:relative; display:flex; align-items:center; }
+.videos-scroll { display:flex; gap:25px; overflow-x:auto; scroll-behavior:smooth; scrollbar-width:none; width:100%; }
+.videos-scroll::-webkit-scrollbar { display:none; }
+.video-card { min-width:320px; max-width:320px; flex:0 0 auto; }
+.video-thumbnail { position:relative; display:block; width:100%; height:560px; overflow:hidden; border-radius:22px; box-shadow:0 12px 30px rgba(0,0,0,0.2); }
+.video-thumbnail img { width:100%; height:100%; object-fit:cover; display:block; }
+.play-btn { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:80px; height:80px; border-radius:50%; background:#ff0000; color:#fff; font-size:36px; display:flex; align-items:center; justify-content:center; transition:.3s; }
+.video-thumbnail:hover .play-btn { transform:translate(-50%,-50%) scale(1.1); }
+.video-title { text-align:center; margin-top:14px; }
+.video-title h4 { font-size:20px; color:#2b1810; margin-bottom:5px; }
+.video-title p { color:#777; font-size:14px; }
+.scroll-btn { position:absolute; top:50%; transform:translateY(-50%); width:50px; height:50px; border:none; border-radius:50%; background:#c8873a; color:#fff; font-size:24px; cursor:pointer; z-index:10; }
+.left-btn { left:-10px; }
+.right-btn { right:-10px; }
+@media(max-width:768px){ .video-card { min-width:240px; max-width:240px; } .video-thumbnail { height:430px; } }
+@media(max-width:480px){ .video-card { min-width:200px; max-width:200px; } .video-thumbnail { height:355px; } }
 </style>
 
 <!-- SPECIALITY -->
@@ -1451,38 +1555,180 @@
     <div class="container">
         <div class="order-wrapper">
             <div class="order-info">
-                <div class="section-label">Buy Temple Care Cleaner</div>
-                <h2 class="section-heading">Place Your<br><em>Order Today</em></h2>
-                <p>Instant brass and copper cleaner made with plant-based, non-toxic ingredients. Trusted for restoring brilliance to idols, diyas, utensils and decorative pieces.</p>
+                <div class="section-label">Buy Edible Karpooram</div>
+
+                <h2 class="section-heading">
+                    Place Your<br><em>Order Today</em>
+                </h2>
+
+                <p>
+                    Premium quality edible karpooram made with purity and tradition.
+                    Trusted for its authentic aroma, freshness, and quality.
+                </p>
+
                 <ul class="order-perks">
-                    <li><i class="fa fa-circle-check"></i> Plant-Based Formula – non-toxic, vegan certified</li>
-                    <li><i class="fa fa-circle-check"></i> Instantly removes tarnish, oxidation &amp; stains</li>
-                    <li><i class="fa fa-circle-check"></i> Fast delivery available across India</li>
-                    <li><i class="fa fa-circle-check"></i> Available in 200ml bottle</li>
+                    <li><i class="fa fa-circle-check"></i> 100% Pure Quality – No synthetic additives</li>
+                    <li><i class="fa fa-circle-check"></i> Natural Ingredients – Crystal clarity guaranteed</li>
+                    <li><i class="fa fa-circle-check"></i> Fast delivery across India</li>
+                    <li><i class="fa fa-circle-check"></i> Available in 50g and 175g packs</li>
                 </ul>
+
+                <div class="product-images">
+                    <img src="{% static 'homepage/img/karpooram50.png' %}"
+                        alt="50g Edible Karpooram"
+                        class="order-img">
+
+                    <img src="{% static 'homepage/img/karpooram175.png' %}"
+                        alt="175g Edible Karpooram"
+                        class="order-img">
+                </div>
+
+
             </div>
             <div class="order-form">
                 <h3>Order Now</h3>
-                <form method="post" action="order_post/">
-                    {% csrf_token %}
-                    <div class="form-field"><input type="text" name="name" placeholder="Your Full Name" required></div>
-                    <div class="form-field"><input type="email" name="email" placeholder="Email Address" required></div>
-                    <div class="form-field"><input type="tel" name="phone" placeholder="Contact Number" required></div>
-                    <div class="form-field"><input type="text" name="address" placeholder="Delivery Address" required></div>
-                    <div class="form-field">
-                        <select name="quantity" required>
-                            <option value="" disabled selected>Select Quantity</option>
-                            <option value="100ml">100ml Bottle</option>
-                            <option value="200ml">200ml Bottle</option>
 
+                <!-- Hidden fields to store order data -->
+                <input type="hidden" id="orderName" value="">
+                <input type="hidden" id="orderEmail" value="">
+                <input type="hidden" id="orderPhone" value="">
+                <input type="hidden" id="orderAddress" value="">
+                <input type="hidden" id="orderCity" value="">
+                <input type="hidden" id="orderState" value="">
+                <input type="hidden" id="orderPincode" value="">
+                <input type="hidden" id="orderQuantity" value="">
+                <input type="hidden" id="orderPackCount" value="1">
+                <input type="hidden" id="orderTotalPrice" value="">
+                <input type="hidden" id="orderSubtotal" value="">
+                <input type="hidden" id="orderShipping" value="">
+                <input type="hidden" id="orderCity" value="">
+                <input type="hidden" id="orderDistrict" value="">
+                <input type="hidden" id="orderState" value="">
+                <input type="hidden" id="orderPincode" value="">
+
+                <!-- Order Form -->
+                <div id="orderFormContent">
+                    <div class="form-field">
+                        <input type="text" id="formName" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-field">
+                        <input type="email" id="formEmail" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-field">
+                        <input type="tel" id="formPhone" placeholder="Contact Number" required>
+                    </div>
+                    <div class="form-field">
+                        <select id="formState" required>
+                            <option value="" disabled selected>Select State</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn-submit">Buy Now</button>
-                </form>
+                    <div class="form-field">
+                        <select id="formDistrict" required disabled>
+                            <option value="" disabled selected>Select District</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <input type="text" id="formHouseNo" placeholder="House No / Street / Locality" required>
+                    </div>
+                    <div class="form-field">
+                        <input type="text" id="formCity" placeholder="City / Town" required>
+                    </div>
+                    <div class="form-field">
+                        <input type="text" id="formPincode" placeholder="Pincode" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" required>
+                    </div>
+                    <div class="form-field">
+                        <select id="formQuantity" required>
+                            <option value="" disabled selected>Select Quantity</option>
+                            <option value="50g">50g Pack</option>
+                            <option value="175g">175g Pack</option>
+                        </select>
+                    </div>
+
+                    <!-- Product image preview: swaps automatically based on pack selected above -->
+                    <div class="product-preview" id="productPreview">
+                        <img id="productPreviewImg" src="" alt="Selected karpooram pack">
+                        <div class="product-preview-info">
+                            <div class="pp-name" id="productPreviewName"></div>
+                            <div class="pp-price" id="productPreviewPrice"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <span class="qty-label">Number of Packs</span>
+                        <div class="qty-stepper">
+                            <button type="button" class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">−</button>
+                            <span class="qty-value" id="qtyValue">1</span>
+                            <button type="button" class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+                        </div>
+                    </div>
+
+                    <!-- FREE SHIPPING PROGRESS -->
+                    <div class="shipping-progress-wrap" id="shippingProgressWrap">
+                        <div class="shipping-msg pending" id="shippingMsg">
+                            <span class="icon">🚚</span>
+                            <span id="shippingMsgText">Add items to see your free delivery progress</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-label" id="progressLabel">0% towards FREE Delivery</div>
+                    </div>
+
+                    <!-- ORDER SUMMARY / PRICE DETAILS -->
+                    <div class="price-summary" id="priceSummary">
+                        <div class="price-row">
+                            <span class="pr-label" id="priceItemsLabel">Price</span>
+                            <span class="pr-value" id="priceSubtotal">₹0</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="pr-label">Delivery Charge</span>
+                            <span class="pr-value" id="priceShipping">₹49</span>
+                        </div>
+                        <div class="price-divider"></div>
+                        <div class="price-row total-row">
+                            <span class="pr-label">Total</span>
+                            <span class="pr-value" id="priceAmount">₹0</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-submit" id="sendOtpBtn">
+                        <i class="fa fa-envelope" style="margin-right:8px;"></i> Continue &amp; Verify Email
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- OTP MODAL -->
+<div class="otp-modal-overlay" id="otpModal">
+    <div class="otp-modal">
+        <h2>🔐 Verify Your Email</h2>
+        <p class="otp-sub">
+            We've sent a 6-digit code to<br>
+            <strong id="otpEmailDisplay">your@email.com</strong>
+        </p>
+
+        <div class="otp-input-group" id="otpInputs">
+            <input type="text" maxlength="1" class="otp-digit" data-index="0" placeholder="•" autofocus>
+            <input type="text" maxlength="1" class="otp-digit" data-index="1" placeholder="•">
+            <input type="text" maxlength="1" class="otp-digit" data-index="2" placeholder="•">
+            <input type="text" maxlength="1" class="otp-digit" data-index="3" placeholder="•">
+            <input type="text" maxlength="1" class="otp-digit" data-index="4" placeholder="•">
+            <input type="text" maxlength="1" class="otp-digit" data-index="5" placeholder="•">
+        </div>
+
+        <div class="otp-error" id="otpError">Invalid OTP. Please try again.</div>
+
+        <div class="otp-resend">
+            Didn't receive the code?
+            <button type="button" id="resendOtp">Resend OTP</button>
+            <span id="resendTimer" style="display:none; color:var(--muted);">(30s)</span>
+        </div>
+
+        <button class="btn-verify" id="verifyOtpBtn">Verify &amp; Place Order</button>
+    </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer" id="footer">
@@ -1755,6 +2001,558 @@
             showPopup();
             setTimeout(loop, 15000);
         }, 3000);
+    })();
+
+   (function(){
+        var STATE_DISTRICTS = {
+            "Andhra Pradesh": ["Anantapur","Chittoor","East Godavari","Guntur","Krishna","Kurnool","Nellore","Prakasam","Srikakulam","Visakhapatnam","Vizianagaram","West Godavari","YSR Kadapa"],
+            "Arunachal Pradesh": ["Papum Pare","East Siang","West Siang","Lower Subansiri","Upper Subansiri","Tawang","West Kameng","East Kameng","Changlang","Tirap","Lohit","Namsai"],
+            "Assam": ["Kamrup","Kamrup Metropolitan","Dibrugarh","Jorhat","Sivasagar","Cachar","Nagaon","Barpeta","Golaghat","Tinsukia","Sonitpur","Dhemaji"],
+            "Bihar": ["Patna","Gaya","Bhagalpur","Muzaffarpur","Darbhanga","Purnia","Nalanda","Saharsa","Begusarai","Vaishali","Rohtas","Siwan"],
+            "Chhattisgarh": ["Raipur","Bilaspur","Durg","Korba","Rajnandgaon","Raigarh","Jagdalpur (Bastar)","Ambikapur","Kanker","Mahasamund"],
+            "Goa": ["North Goa","South Goa"],
+            "Gujarat": ["Ahmedabad","Surat","Vadodara","Rajkot","Bhavnagar","Jamnagar","Junagadh","Gandhinagar","Anand","Kutch","Mehsana","Navsari"],
+            "Haryana": ["Faridabad","Gurugram","Panipat","Ambala","Karnal","Hisar","Rohtak","Sonipat","Yamunanagar","Panchkula","Kurukshetra","Sirsa"],
+            "Himachal Pradesh": ["Shimla","Kangra","Mandi","Solan","Kullu","Una","Hamirpur","Chamba","Sirmaur","Bilaspur"],
+            "Jharkhand": ["Ranchi","Jamshedpur (East Singhbhum)","Dhanbad","Bokaro","Hazaribagh","Giridih","Deoghar","Dumka","Palamu","Ramgarh"],
+            "Karnataka": ["Bengaluru Urban","Bengaluru Rural","Mysuru","Mangaluru (Dakshina Kannada)","Hubballi-Dharwad","Belagavi","Kalaburagi","Ballari","Shivamogga","Tumakuru","Udupi","Davanagere"],
+            "Kerala": ["Thiruvananthapuram","Kollam","Pathanamthitta","Alappuzha","Kottayam","Idukki","Ernakulam","Thrissur","Palakkad","Malappuram","Kozhikode","Wayanad","Kannur","Kasaragod"],
+            "Madhya Pradesh": ["Bhopal","Indore","Jabalpur","Gwalior","Ujjain","Sagar","Rewa","Satna","Ratlam","Dewas","Chhindwara","Vidisha"],
+            "Maharashtra": ["Mumbai City","Mumbai Suburban","Pune","Nagpur","Nashik","Thane","Aurangabad (Chhatrapati Sambhajinagar)","Solapur","Kolhapur","Amravati","Nanded","Satara"],
+            "Manipur": ["Imphal East","Imphal West","Thoubal","Bishnupur","Churachandpur","Senapati","Ukhrul","Tamenglong"],
+            "Meghalaya": ["East Khasi Hills","West Khasi Hills","Jaintia Hills","Ri Bhoi","East Garo Hills","West Garo Hills"],
+            "Mizoram": ["Aizawl","Lunglei","Champhai","Kolasib","Serchhip","Mamit","Lawngtlai"],
+            "Nagaland": ["Kohima","Dimapur","Mokokchung","Tuensang","Wokha","Zunheboto","Mon","Phek"],
+            "Odisha": ["Khordha (Bhubaneswar)","Cuttack","Puri","Ganjam","Sambalpur","Balasore","Mayurbhanj","Rourkela (Sundargarh)","Kalahandi","Koraput"],
+            "Punjab": ["Ludhiana","Amritsar","Jalandhar","Patiala","Bathinda","Mohali","Hoshiarpur","Ferozepur","Moga","Sangrur"],
+            "Rajasthan": ["Jaipur","Jodhpur","Udaipur","Kota","Bikaner","Ajmer","Alwar","Bharatpur","Sikar","Bhilwara","Pali","Sri Ganganagar"],
+            "Sikkim": ["East Sikkim","West Sikkim","North Sikkim","South Sikkim"],
+            "Tamil Nadu": ["Chennai","Coimbatore","Madurai","Tiruchirappalli","Salem","Tirunelveli","Erode","Vellore","Thanjavur","Dindigul","Kanyakumari","Thoothukudi"],
+            "Telangana": ["Hyderabad","Rangareddy","Warangal","Nizamabad","Karimnagar","Khammam","Nalgonda","Mahbubnagar","Medak","Adilabad"],
+            "Tripura": ["West Tripura","Sepahijala","Gomati","South Tripura","Dhalai","Unakoti","North Tripura"],
+            "Uttar Pradesh": ["Lucknow","Kanpur Nagar","Ghaziabad","Agra","Varanasi","Meerut","Prayagraj","Bareilly","Aligarh","Moradabad","Noida (Gautam Buddh Nagar)","Gorakhpur"],
+            "Uttarakhand": ["Dehradun","Haridwar","Nainital","Udham Singh Nagar","Pauri Garhwal","Almora","Tehri Garhwal","Chamoli"],
+            "West Bengal": ["Kolkata","Howrah","North 24 Parganas","South 24 Parganas","Hooghly","Nadia","Purba Bardhaman","Paschim Bardhaman","Darjeeling","Malda","Murshidabad","Purba Medinipur"],
+            "Andaman and Nicobar Islands": ["Nicobar","North and Middle Andaman","South Andaman"],
+            "Chandigarh": ["Chandigarh"],
+            "Dadra and Nagar Haveli and Daman and Diu": ["Dadra and Nagar Haveli","Daman","Diu"],
+            "Delhi": ["New Delhi","North Delhi","South Delhi","East Delhi","West Delhi","Central Delhi","North East Delhi","North West Delhi","South East Delhi","South West Delhi","Shahdara"],
+            "Jammu and Kashmir": ["Srinagar","Jammu","Baramulla","Anantnag","Budgam","Kupwara","Pulwama","Udhampur"],
+            "Ladakh": ["Leh","Kargil"],
+            "Lakshadweep": ["Lakshadweep"],
+            "Puducherry": ["Puducherry","Karaikal","Mahe","Yanam"]
+        };
+
+        var stateSel    = document.getElementById('formState');
+        var districtSel = document.getElementById('formDistrict');
+
+        // Populate states (alphabetical, keeping Kerala visible naturally within order)
+        Object.keys(STATE_DISTRICTS).sort().forEach(function(state){
+            var opt = document.createElement('option');
+            opt.value = state;
+            opt.textContent = state;
+            stateSel.appendChild(opt);
+        });
+
+        function populateDistricts(state) {
+            districtSel.innerHTML = '<option value="" disabled selected>Select District</option>';
+            var districts = STATE_DISTRICTS[state] || [];
+            districts.forEach(function(d){
+                var opt = document.createElement('option');
+                opt.value = d;
+                opt.textContent = d;
+                districtSel.appendChild(opt);
+            });
+            districtSel.disabled = districts.length === 0;
+        }
+
+        stateSel.addEventListener('change', function(){
+            populateDistricts(this.value);
+        });
+
+        var pincodeInput = document.getElementById('formPincode');
+        pincodeInput.addEventListener('input', function(){
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);
+        });
+    })();
+
+    /* ════════════════════════════════════════
+       PRODUCT IMAGE SWAP + QTY STEPPER + AUTO PRICE
+       + FREE SHIPPING (₹999 threshold)
+       (custom site — not Shopify, so this is all
+       plain JS. Edit PRODUCT_DATA / FREE_SHIPPING_
+       THRESHOLD / SHIPPING_CHARGE below to change
+       images / prices / bundle tiers / shipping rule.)
+    ════════════════════════════════════════ */
+    (function(){
+        // NOTE: swap these image paths for your real files.
+        // 50g uses the path you gave me. I've guessed a matching
+        // filename for 175g (karpooram175.png) — rename it on
+        // disk to match, or tell me the real filename and I'll update it.
+        var PRODUCT_DATA = {
+            '50g': {
+                label: '50g Pack',
+                image: "{% static 'homepage/img/karpooram50.png' %}",
+                // qty : price (₹) — from your bundle sheet
+                tiers: { 1: 199, 2: 349, 4: 649 }
+            },
+            '175g': {
+                label: '175g Pack',
+                image: "{% static 'homepage/img/karpooram175.png' %}",
+                tiers: { 1: 549, 2: 999, 4: 1899 }
+            }
+        };
+
+        // ── Free shipping config ──
+        var FREE_SHIPPING_THRESHOLD = 999; // ₹ — subtotal at/above this = free shipping
+        var SHIPPING_CHARGE = 49;          // ₹ — flat shipping charge below threshold
+        var DISCOUNT = 0;                  // ₹ — hook for future coupon support
+
+        var formQuantitySel = document.getElementById('formQuantity');
+        var productPreview  = document.getElementById('productPreview');
+        var previewImg      = document.getElementById('productPreviewImg');
+        var previewName     = document.getElementById('productPreviewName');
+        var previewPrice    = document.getElementById('productPreviewPrice');
+        var qtyMinusBtn     = document.getElementById('qtyMinus');
+        var qtyPlusBtn      = document.getElementById('qtyPlus');
+        var qtyValueEl      = document.getElementById('qtyValue');
+
+        // Price summary elements
+        var priceItemsLabel = document.getElementById('priceItemsLabel');
+        var priceSubtotalEl = document.getElementById('priceSubtotal');
+        var priceShippingEl = document.getElementById('priceShipping');
+        var priceAmountEl   = document.getElementById('priceAmount');
+
+        // Free shipping progress elements
+        var shippingMsgEl     = document.getElementById('shippingMsg');
+        var shippingMsgTextEl = document.getElementById('shippingMsgText');
+        var progressFillEl    = document.getElementById('progressFill');
+        var progressLabelEl   = document.getElementById('progressLabel');
+
+        var orderPackCount  = document.getElementById('orderPackCount');
+        var orderTotalPrice = document.getElementById('orderTotalPrice');
+        var orderSubtotal   = document.getElementById('orderSubtotal');
+        var orderShipping   = document.getElementById('orderShipping');
+
+        var packCount = 1;
+
+        // Price for N packs of a given size, using the nearest
+        // bundle tier below/at N, then per-unit rate for any extra.
+        function priceFor(packKey, qty) {
+            var data = PRODUCT_DATA[packKey];
+            if (!data) return 0;
+            var tiers = data.tiers;
+            if (tiers[qty] !== undefined) return tiers[qty];
+
+            var tierQtys = Object.keys(tiers).map(Number).sort(function(a,b){ return a-b; });
+            var highest = tierQtys[tierQtys.length - 1];
+
+            if (qty > highest) {
+                var perUnit = tiers[highest] / highest;
+                return Math.round(perUnit * qty);
+            }
+            // qty falls between two defined tiers (e.g. 3 between 2 and 4):
+            // use the lower tier's per-unit rate for the extra packs.
+            var lowerQty = tierQtys[0];
+            for (var i = 0; i < tierQtys.length; i++) {
+                if (tierQtys[i] <= qty) lowerQty = tierQtys[i];
+            }
+            var basePerUnit = tiers[lowerQty] / lowerQty;
+            return Math.round(basePerUnit * qty);
+        }
+
+        function formatRs(n) {
+            return '₹' + Math.round(n).toLocaleString('en-IN');
+        }
+
+        // Updates the "Price / Shipping / Total" summary card and the
+        // free-shipping progress bar. Runs on every quantity / pack
+        // change so everything stays in sync in real time.
+        function updateShippingAndSummary(subtotal, packKey) {
+            var eligible = subtotal >= FREE_SHIPPING_THRESHOLD;
+            var shipping = eligible ? 0 : SHIPPING_CHARGE;
+            var grandTotal = subtotal - DISCOUNT + shipping;
+
+            // Price row label ("Price (N Items)")
+            priceItemsLabel.textContent = 'Price (' + packCount + (packCount === 1 ? ' Item' : ' Items') + ')';
+            priceSubtotalEl.textContent = formatRs(subtotal);
+
+            // Shipping row
+            if (eligible) {
+                priceShippingEl.innerHTML = '<span class="shipping-strike">' + formatRs(SHIPPING_CHARGE) + '</span><span class="shipping-free">FREE</span>';
+                priceShippingEl.className = 'pr-value';
+            } else {
+                priceShippingEl.textContent = formatRs(shipping);
+                priceShippingEl.className = 'pr-value';
+            }
+
+            // Total
+            priceAmountEl.textContent = formatRs(grandTotal);
+
+            // Progress bar + message
+            var progress = subtotal > 0 ? Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100) : 0;
+            progressFillEl.style.width = progress + '%';
+            progressFillEl.classList.toggle('complete', eligible);
+
+            if (subtotal <= 0) {
+                shippingMsgEl.className = 'shipping-msg pending';
+                shippingMsgEl.innerHTML = '<span class="icon">🚚</span><span>Add items to see your free delivery progress</span>';
+                progressLabelEl.textContent = '0% towards FREE Delivery';
+                progressLabelEl.classList.remove('complete');
+            } else if (eligible) {
+                shippingMsgEl.className = 'shipping-msg eligible';
+                shippingMsgEl.innerHTML = '<span class="icon">✅</span><span>Congratulations! 🎉 You are eligible for FREE Delivery.</span>';
+                progressLabelEl.textContent = '100% — FREE Delivery unlocked';
+                progressLabelEl.classList.add('complete');
+            } else {
+                var remaining = FREE_SHIPPING_THRESHOLD - subtotal;
+                shippingMsgEl.className = 'shipping-msg pending';
+                shippingMsgEl.innerHTML = '<span class="icon">🚚</span><span>Add <span class="amt">' + formatRs(remaining) + '</span> more to unlock FREE Delivery!</span>';
+                progressLabelEl.textContent = Math.round(progress) + '% towards FREE Delivery';
+                progressLabelEl.classList.remove('complete');
+            }
+
+            // Persist for order submission
+            orderSubtotal.value = subtotal;
+            orderShipping.value = shipping;
+            orderTotalPrice.value = grandTotal;
+            orderPackCount.value = packCount;
+        }
+
+        function updateAll() {
+            var packKey = formQuantitySel.value;
+
+            if (!packKey) {
+                productPreview.classList.remove('show');
+                updateShippingAndSummary(0, null);
+                return;
+            }
+
+            var data = PRODUCT_DATA[packKey];
+
+            // Show matching product image
+            previewImg.src = data.image;
+            previewImg.alt = data.label + ' – Ecomonks Divya Bhimseni Karpooram';
+            previewName.textContent = data.label;
+            productPreview.classList.add('show');
+
+            // Auto-calculate subtotal from bundle tiers
+            var subtotal = priceFor(packKey, packCount);
+            previewPrice.textContent = packCount + ' × ' + data.label + ' = ' + formatRs(subtotal);
+
+            updateShippingAndSummary(subtotal, packKey);
+        }
+
+        formQuantitySel.addEventListener('change', updateAll);
+
+        qtyMinusBtn.addEventListener('click', function(){
+            if (packCount > 1) packCount--;
+            qtyValueEl.textContent = packCount;
+            updateAll();
+        });
+        qtyPlusBtn.addEventListener('click', function(){
+            if (packCount < 20) packCount++;
+            qtyValueEl.textContent = packCount;
+            updateAll();
+        });
+
+        // Initialize on load in case a value is prefilled
+        updateAll();
+    })();
+
+    /* ════════════════════════════════════════
+       OTP VERIFICATION — COMPLETE
+    ════════════════════════════════════════ */
+    (function(){
+        // DOM Elements
+        var otpModal     = document.getElementById('otpModal');
+        var otpInputs    = document.querySelectorAll('.otp-digit');
+        var verifyBtn    = document.getElementById('verifyOtpBtn');
+        var resendBtn    = document.getElementById('resendOtp');
+        var resendTimer  = document.getElementById('resendTimer');
+        var otpError     = document.getElementById('otpError');
+        var otpEmailDisplay = document.getElementById('otpEmailDisplay');
+        var sendOtpBtn   = document.getElementById('sendOtpBtn');
+
+        // Hidden fields
+        var orderName    = document.getElementById('orderName');
+        var orderEmail   = document.getElementById('orderEmail');
+        var orderPhone   = document.getElementById('orderPhone');
+        var orderAddress = document.getElementById('orderAddress');
+        var orderCity    = document.getElementById('orderCity');
+        var orderState   = document.getElementById('orderState');
+        var orderPincode = document.getElementById('orderPincode');
+        var orderQuantity = document.getElementById('orderQuantity');
+        var orderCity = document.getElementById('orderCity');
+        var orderDistrict = document.getElementById('orderDistrict');
+        var orderState = document.getElementById('orderState');
+        var orderPincode = document.getElementById('orderPincode');
+
+        // Form fields
+        var formName     = document.getElementById('formName');
+        var formEmail    = document.getElementById('formEmail');
+        var formPhone    = document.getElementById('formPhone');
+        var formState    = document.getElementById('formState');
+        var formDistrict = document.getElementById('formDistrict');
+        var formHouseNo  = document.getElementById('formHouseNo');
+        var formCity     = document.getElementById('formCity');
+        var formPincode  = document.getElementById('formPincode');
+        var formQuantity = document.getElementById('formQuantity');
+
+        var otpTimer     = null;
+        var otpCountdown = 30;
+
+        // Get CSRF Token
+        function getCsrfToken() {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                var parts = cookie.split('=');
+                if (parts[0] === 'csrftoken') {
+                    return parts[1];
+                }
+            }
+            return '';
+        }
+
+        // Send OTP Button
+        sendOtpBtn.addEventListener('click', function() {
+            var name = formName.value.trim();
+            var email = formEmail.value.trim();
+            var phone = formPhone.value.trim();
+            var state = formState.value;
+            var district = formDistrict.value;
+            var houseNo = formHouseNo.value.trim();
+            var city = formCity.value.trim();
+            var pincode = formPincode.value.trim();
+            var quantity = formQuantity.value;
+
+            if (!name || !email || !phone || !state || !district || !houseNo || !city || !pincode || !quantity) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            if (!/^[0-9]{6}$/.test(pincode)) {
+                alert('Please enter a valid 6-digit pincode');
+                return;
+            }
+
+            // Combine house/street + city + district + state + pincode into a single address string
+            var fullAddress = houseNo + ', ' + city + ', ' + district + ', ' + state + ' - ' + pincode;
+
+            // Store order data
+            orderName.value = name;
+            orderEmail.value = email;
+            orderPhone.value = phone;
+            orderAddress.value = fullAddress;
+            orderCity.value = city;
+            orderDistrict.value = district;
+            orderState.value = state;
+            orderPincode.value = pincode;
+            orderQuantity.value = quantity;
+
+            // Show OTP modal
+            otpEmailDisplay.textContent = email;
+            otpModal.classList.add('active');
+            otpError.classList.remove('show');
+            otpInputs.forEach(function(inp) { inp.value = ''; });
+            otpInputs[0].focus();
+
+            // Send OTP via AJAX
+            sendOtpToEmail(email);
+            startResendTimer();
+        });
+
+        // OTP Input Auto-focus
+        otpInputs.forEach(function(input, index) {
+            input.addEventListener('input', function(e) {
+                var value = this.value;
+                if (value.length === 1 && index < 5) {
+                    otpInputs[index + 1].focus();
+                }
+                // Auto-submit when all filled
+                if (index === 5 && value.length === 1) {
+                    setTimeout(verifyOtp, 100);
+                }
+            });
+
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !this.value && index > 0) {
+                    otpInputs[index - 1].focus();
+                }
+            });
+
+            // Allow only numbers
+            input.addEventListener('keypress', function(e) {
+                if (!/[0-9]/.test(e.key)) {
+                    e.preventDefault();
+                }
+            });
+        });
+
+        // Verify OTP
+        verifyBtn.addEventListener('click', verifyOtp);
+
+        function verifyOtp() {
+            var otp = '';
+            otpInputs.forEach(function(inp) { otp += inp.value; });
+            if (otp.length !== 6) {
+                otpError.textContent = 'Please enter all 6 digits';
+                otpError.classList.add('show');
+                return;
+            }
+
+            verifyBtn.disabled = true;
+            verifyBtn.textContent = 'Verifying...';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/verify-otp/', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('X-CSRFToken', getCsrfToken());
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                        if (data.verified) {
+                            otpModal.classList.remove('active');
+                            submitOrder();
+                        } else {
+                            otpError.textContent = data.message || 'Invalid OTP. Please try again.';
+                            otpError.classList.add('show');
+                            verifyBtn.disabled = false;
+                            verifyBtn.textContent = 'Verify & Place Order';
+                            otpInputs.forEach(function(inp) { inp.value = ''; });
+                            otpInputs[0].focus();
+                        }
+                    } catch (e) {
+                        otpError.textContent = 'Something went wrong. Please try again.';
+                        otpError.classList.add('show');
+                        verifyBtn.disabled = false;
+                        verifyBtn.textContent = 'Verify & Place Order';
+                    }
+                }
+            };
+
+            xhr.send(JSON.stringify({
+                otp: otp,
+                email: orderEmail.value
+            }));
+        }
+
+        // Submit order after verification
+        function submitOrder() {
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/order_post/';
+
+            var fields = {
+                name: orderName.value,
+                email: orderEmail.value,
+                phone: orderPhone.value,
+                address: orderAddress.value,
+                city: orderCity.value,
+                district: orderDistrict.value,
+                state: orderState.value,
+                pincode: orderPincode.value,
+                quantity: orderQuantity.value,
+                pack_count: document.getElementById('orderPackCount').value,
+                subtotal: document.getElementById('orderSubtotal').value,
+                shipping: document.getElementById('orderShipping').value,
+                total_price: document.getElementById('orderTotalPrice').value
+            };
+
+            for (var key in fields) {
+                if (fields.hasOwnProperty(key)) {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = fields[key];
+                    form.appendChild(input);
+                }
+            }
+
+            // Add CSRF token
+            var csrf = document.createElement('input');
+            csrf.type = 'hidden';
+            csrf.name = 'csrfmiddlewaretoken';
+            csrf.value = getCsrfToken();
+            form.appendChild(csrf);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        // Send OTP via AJAX
+        function sendOtpToEmail(email) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/send-otp/', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('X-CSRFToken', getCsrfToken());
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                        if (data.status === 'success') {
+                            console.log('OTP sent to email');
+                        } else {
+                            console.error('Failed to send OTP:', data.message);
+                        }
+                    } catch (e) {
+                        console.error('Error sending OTP:', e);
+                    }
+                }
+            };
+
+            xhr.send(JSON.stringify({ email: email }));
+        }
+
+        // Resend OTP
+        resendBtn.addEventListener('click', function() {
+            var email = orderEmail.value;
+            if (email) {
+                sendOtpToEmail(email);
+                startResendTimer();
+                otpError.classList.remove('show');
+            }
+        });
+
+        function startResendTimer() {
+            otpCountdown = 30;
+            resendBtn.style.display = 'none';
+            resendTimer.style.display = 'inline';
+            clearInterval(otpTimer);
+
+            otpTimer = setInterval(function() {
+                otpCountdown--;
+                resendTimer.textContent = '(' + otpCountdown + 's)';
+                if (otpCountdown <= 0) {
+                    clearInterval(otpTimer);
+                    resendBtn.style.display = 'inline';
+                    resendTimer.style.display = 'none';
+                }
+            }, 1000);
+        }
+
+        // Close modal on outside click
+        otpModal.addEventListener('click', function(e) {
+            if (e.target === otpModal) {
+                // Don't close on outside click to prevent accidental loss
+                // Only close if user clicks the close button
+            }
+        });
+
+        // Allow Enter key to submit OTP
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && otpModal.classList.contains('active')) {
+                var activeElement = document.activeElement;
+                if (activeElement.classList && activeElement.classList.contains('otp-digit')) {
+                    verifyOtp();
+                }
+            }
+        });
+
     })();
 </script>
 </body>
