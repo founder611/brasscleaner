@@ -99,7 +99,7 @@ class DelhiveryAPI:
             "return_state": self.pickup_address["state"],
             "return_country": "India",
 
-            "products_desc": "Divya Bhimseni Karpooram",
+            "products_desc": "Temple Cleaner Brass Cleaner",
             "hsn_code": "",
 
             "cod_amount": "0",
