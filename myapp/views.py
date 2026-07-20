@@ -722,13 +722,6 @@ from supabase import create_client
 from myapp.delhivery_config import DelhiveryAPI
 
 
-# ==========================================
-# CONSTANTS & CONFIGURATION
-# ==========================================
-# NOTE: All secrets below are now read from environment variables.
-# Set these on your server (e.g. in a .env file loaded by python-decouple/
-# django-environ, or in your systemd/hosting panel's environment settings).
-# ROTATE every key that was previously hardcoded in this file before deploying.
 
 PRICING_TIERS = {
     "100ml": {1: 199, 2: 349, 4: 649},
@@ -738,21 +731,18 @@ PRICING_TIERS = {
 FREE_SHIPPING_THRESHOLD = 999   # ₹
 SHIPPING_CHARGE = 49            # ₹
 
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://uuzumstwtrgzmeqgkjrj.supabase.co")
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV1enVtc3R3dHJnem1lcWdranJqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MTUwODA1MSwiZXhwIjoyMDk3MDg0MDUxfQ.lZlydZ_sVQhcBteBBX1mucA_ZbmlkOS7yUVO8gYCV6U")
 
-RAZORPAY_API_KEY = os.environ.get("RAZORPAY_API_KEY", "")
-RAZORPAY_SECRET_KEY = os.environ.get("RAZORPAY_SECRET_KEY", "")
+RAZORPAY_API_KEY = os.environ.get("RAZORPAY_API_KEY", "rzp_live_Su35EVyNYFeKCF")
+RAZORPAY_SECRET_KEY = os.environ.get("RAZORPAY_SECRET_KEY", "NQE3JfS6rdlmp8YtHrxF120H")
 
-MBG_API_KEY = os.environ.get("MBG_API_KEY", "")
+MBG_API_KEY = os.environ.get("MBG_API_KEY", "39832662461ae94fa94b03487c7866f3")
 
-# SMTP config — pulled from env so you can point this at whatever server
-# actually hosts mail for your sending domain (Gmail's SMTP will reject
-# logins for addresses that aren't hosted on Google Workspace).
 SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
 SMTP_USER = os.environ.get("SMTP_USER", "founder@ecomonks.in")
-SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "crmwddzdzoqatofz")
 
 
 # ==========================================
