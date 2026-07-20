@@ -702,8 +702,6 @@
 #         return JsonResponse({'verified': False, 'message': str(e)}, status=500)
 
 
-
-
 import os
 import smtplib
 import json
@@ -727,6 +725,10 @@ from myapp.delhivery_config import DelhiveryAPI
 # ==========================================
 # CONSTANTS & CONFIGURATION
 # ==========================================
+# NOTE: All secrets below are now read from environment variables.
+# Set these on your server (e.g. in a .env file loaded by python-decouple/
+# django-environ, or in your systemd/hosting panel's environment settings).
+# ROTATE every key that was previously hardcoded in this file before deploying.
 
 PRICING_TIERS = {
     "100ml": {1: 199, 2: 349, 4: 649},
@@ -736,13 +738,21 @@ PRICING_TIERS = {
 FREE_SHIPPING_THRESHOLD = 999   # ₹
 SHIPPING_CHARGE = 49            # ₹
 
-SUPABASE_URL = "https://uuzumstwtrgzmeqgkjrj.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV1enVtc3R3dHJnem1lcWdranJqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MTUwODA1MSwiZXhwIjoyMDk3MDg0MDUxfQ.lZlydZ_sVQhcBteBBX1mucA_ZbmlkOS7yUVO8gYCV6U"
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
-RAZORPAY_API_KEY = "rzp_live_Su35EVyNYFeKCF"
-RAZORPAY_SECRET_KEY = "NQE3JfS6rdlmp8YtHrxF120H"
+RAZORPAY_API_KEY = os.environ.get("RAZORPAY_API_KEY", "")
+RAZORPAY_SECRET_KEY = os.environ.get("RAZORPAY_SECRET_KEY", "")
 
-MBG_API_KEY = "39832662461ae94fa94b03487c7866f3"
+MBG_API_KEY = os.environ.get("MBG_API_KEY", "")
+
+# SMTP config — pulled from env so you can point this at whatever server
+# actually hosts mail for your sending domain (Gmail's SMTP will reject
+# logins for addresses that aren't hosted on Google Workspace).
+SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
+SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
+SMTP_USER = os.environ.get("SMTP_USER", "founder@ecomonks.in")
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
 
 
 # ==========================================
@@ -869,8 +879,6 @@ def raz_pay(request, amount):
 def save_order_to_supabase(name, email, phone, address, quantity, amount, payment_id, pack_count=1):
     """Save order to Supabase database"""
     try:
-        print("===== SUPABASE FUNCTION STARTED =====")
-
         supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
         order_data = {
@@ -885,14 +893,12 @@ def save_order_to_supabase(name, email, phone, address, quantity, amount, paymen
             "pack_count": pack_count
         }
 
-        print("ORDER DATA:", order_data)
-
         result = supabase.table("brasscleaner_orders").insert(order_data).execute()
         print("SUPABASE RESULT:", result)
 
         return True
 
-    except Exception as e:
+    except Exception:
         import traceback
         print("===== SUPABASE ERROR =====")
         print(traceback.format_exc())
@@ -906,9 +912,6 @@ def save_order_to_supabase(name, email, phone, address, quantity, amount, paymen
 def send_whatsapp_message(name, phone, quantity, payment_id, amount, order_date=""):
     """Send WhatsApp message using MBG API"""
     try:
-        print("========== MBG WHATSAPP TEMPLATE ==========")
-
-        # Clean phone number
         phone = str(phone).replace(" ", "").replace("+", "").strip()
         if not phone.startswith("91"):
             phone = "91" + phone
@@ -942,9 +945,7 @@ def send_whatsapp_message(name, phone, quantity, payment_id, amount, order_date=
             timeout=30
         )
 
-        print("Status:", response.status_code)
-        print("Response:", response.text)
-
+        print("WhatsApp status:", response.status_code)
         return response.status_code == 200
 
     except Exception as e:
@@ -966,35 +967,12 @@ def send_whatsapp_flow(name, phone, quantity, payment_id, amount, order_date="")
             "senderId": "+" + phone,
             "name": name,
             "actions": [
-                {
-                    "action": "set_field_value",
-                    "field_name": "name",
-                    "value": name
-                },
-                {
-                    "action": "set_field_value",
-                    "field_name": "quantity",
-                    "value": str(quantity)
-                },
-                {
-                    "action": "set_field_value",
-                    "field_name": "amount",
-                    "value": str(amount)
-                },
-                {
-                    "action": "set_field_value",
-                    "field_name": "payment_id",
-                    "value": payment_id
-                },
-                {
-                    "action": "set_field_value",
-                    "field_name": "order_date",
-                    "value": order_date
-                },
-                {
-                    "action": "send_flow",
-                    "flow_id": "flow_1782640760578"
-                }
+                {"action": "set_field_value", "field_name": "name", "value": name},
+                {"action": "set_field_value", "field_name": "quantity", "value": str(quantity)},
+                {"action": "set_field_value", "field_name": "amount", "value": str(amount)},
+                {"action": "set_field_value", "field_name": "payment_id", "value": payment_id},
+                {"action": "set_field_value", "field_name": "order_date", "value": order_date},
+                {"action": "send_flow", "flow_id": "flow_1782640760578"}
             ]
         }
 
@@ -1009,9 +987,7 @@ def send_whatsapp_flow(name, phone, quantity, payment_id, amount, order_date="")
             timeout=30
         )
 
-        print("WhatsApp Flow Status:", response.status_code)
-        print("WhatsApp Flow Response:", response.text)
-
+        print("WhatsApp Flow status:", response.status_code)
         return response.status_code == 200
 
     except Exception as e:
@@ -1024,25 +1000,41 @@ def send_whatsapp_flow(name, phone, quantity, payment_id, amount, order_date="")
 # ==========================================
 
 def send_email(subject, to_email, html_content):
-    """Send email using SMTP"""
+    """
+    Send email using SMTP.
+    Returns (success: bool, error_message: str|None) so callers — especially
+    the OTP flow — can tell the difference between "sent" and "silently failed".
+    """
+    server = None
     try:
-        server = smtplib.SMTP('smtp.gmail.com', 587)
+        if not SMTP_PASSWORD:
+            return False, "SMTP_PASSWORD is not configured on the server"
+
+        server = smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15)
         server.starttls()
-        server.login("founder@ecomonks.in", "crmwddzdzoqatofz")
+        server.login(SMTP_USER, SMTP_PASSWORD)
 
         msg = MIMEMultipart()
-        msg['From'] = "founder@ecomonks.in"
+        msg['From'] = SMTP_USER
         msg['To'] = to_email
         msg['Subject'] = subject
         msg.attach(MIMEText(html_content, 'html', 'utf-8'))
 
-        server.sendmail("founder@ecomonks.in", to_email, msg.as_string())
-        server.quit()
+        server.sendmail(SMTP_USER, to_email, msg.as_string())
+        return True, None
 
-        return True
+    except smtplib.SMTPAuthenticationError as e:
+        print(f"Email auth error: {e}")
+        return False, "SMTP authentication failed — check SMTP_USER/SMTP_PASSWORD/SMTP_HOST"
     except Exception as e:
         print(f"Email error: {e}")
-        return False
+        return False, str(e)
+    finally:
+        if server is not None:
+            try:
+                server.quit()
+            except Exception:
+                pass
 
 
 # ==========================================
@@ -1054,7 +1046,6 @@ def userpayment_post(request):
     if request.method != "POST":
         return HttpResponse("Invalid Request")
 
-    # Get all form data
     name = request.POST.get('name', '')
     email = request.POST.get('email', '')
     phone = request.POST.get('phone', '')
@@ -1067,25 +1058,21 @@ def userpayment_post(request):
     state = request.POST.get('state', '')
     pincode = request.POST.get('pincode', '')
 
-    # Get pack_count from POST or use default
     try:
         pack_count = int(request.POST.get('pack_count', 1))
     except (TypeError, ValueError):
         pack_count = 1
 
-    # Build full address
     full_address = f"{address}, {district}, {city}, {state} - {pincode}"
 
-    # Convert amount from paise to rupees
     try:
         amount_rupees = float(amount) / 100
-    except:
+    except (TypeError, ValueError):
         amount_rupees = 0
 
     if not email:
         return HttpResponse("Email not found")
 
-    # Success HTML template
     success_html = """
     <script>
     alert('Payment Successful!');
@@ -1095,7 +1082,6 @@ def userpayment_post(request):
 
     # ─── 1. SEND EMAILS ───
     try:
-        # Customer email
         customer_html = f"""
         <html>
         <body style="font-family: Arial; background:#f4f4f4; padding:30px;">
@@ -1118,10 +1104,10 @@ def userpayment_post(request):
         </body>
         </html>
         """
+        ok, err = send_email("ECOMONKS Order Confirmation", email, customer_html)
+        if not ok:
+            print(f"❌ Customer email failed: {err}")
 
-        send_email("ECOMONKS Order Confirmation", email, customer_html)
-
-        # Admin email
         admin_html = f"""
         <html>
         <body>
@@ -1136,10 +1122,9 @@ def userpayment_post(request):
         </body>
         </html>
         """
-
-        send_email("New ECOMONKS Order Received", "founder@ecomonks.in", admin_html)
-
-        print("✅ Emails sent successfully")
+        ok, err = send_email("New ECOMONKS Order Received", "founder@ecomonks.in", admin_html)
+        if not ok:
+            print(f"❌ Admin email failed: {err}")
 
     except Exception as e:
         print(f"❌ Email error: {str(e)}")
@@ -1163,15 +1148,6 @@ def userpayment_post(request):
 
     # ─── 4. CREATE DELHIVERY SHIPMENT ───
     try:
-        print("=" * 70)
-        print("CREATING DELHIVERY SHIPMENT")
-        print("Address:", address)
-        print("District:", district)
-        print("City:", city)
-        print("State:", state)
-        print("Pincode:", pincode)
-        print("=" * 70)
-
         delhivery = DelhiveryAPI()
         waybill = delhivery.generate_waybill()
 
@@ -1190,7 +1166,6 @@ def userpayment_post(request):
             "weight": get_weight(quantity, pack_count)
         }
 
-        print(f"Order data: {order_data}")
         shipment_response = delhivery.create_shipment(order_data)
 
         if shipment_response:
@@ -1201,7 +1176,6 @@ def userpayment_post(request):
     except Exception as e:
         print(f"❌ Delhivery API error: {str(e)}")
 
-    # ─── RETURN SUCCESS ───
     return HttpResponse(success_html)
 
 
@@ -1219,30 +1193,28 @@ def emailenquiry(request):
     if not email:
         return HttpResponse("Email required")
 
-    try:
-        subscription_html = f"""
-        <html>
-        <body style="font-family: Arial; background:#f4f4f4; padding:30px;">
-        <div style="max-width:600px; margin:auto; background:white; border-radius:15px; padding:30px;">
-        <h1 style="color:#0b7d45; text-align:center;">🌿 Welcome to ECOMONKS</h1>
-        <p>Thank you for subscribing to ECOMONKS.</p>
-        <p>We are excited to have you as part of our growing family ❤️</p>
-        </div>
-        </body>
-        </html>
-        """
+    subscription_html = f"""
+    <html>
+    <body style="font-family: Arial; background:#f4f4f4; padding:30px;">
+    <div style="max-width:600px; margin:auto; background:white; border-radius:15px; padding:30px;">
+    <h1 style="color:#0b7d45; text-align:center;">🌿 Welcome to ECOMONKS</h1>
+    <p>Thank you for subscribing to ECOMONKS.</p>
+    <p>We are excited to have you as part of our growing family ❤️</p>
+    </div>
+    </body>
+    </html>
+    """
 
-        send_email("ECOMONKS Subscription", email, subscription_html)
+    ok, err = send_email("ECOMONKS Subscription", email, subscription_html)
+    if not ok:
+        return HttpResponse(f"ERROR: {err}")
 
-        return HttpResponse("""
-        <script>
-        alert('Subscribed Successfully');
-        window.location='/';
-        </script>
-        """)
-
-    except Exception as e:
-        return HttpResponse(f"ERROR: {str(e)}")
+    return HttpResponse("""
+    <script>
+    alert('Subscribed Successfully');
+    window.location='/';
+    </script>
+    """)
 
 
 # ==========================================
@@ -1255,37 +1227,31 @@ def generate_otp():
 
 
 def send_email_otp(email, otp):
-    """Send OTP via email"""
-    try:
-        html_content = f"""
-        <html>
-        <body style="font-family: Arial, sans-serif; background:#f4f4f4; padding:30px;">
-            <div style="max-width:450px; margin:auto; background:white; border-radius:12px; padding:30px; text-align:center;">
-                <h1 style="color:#0b7d45; margin-bottom:8px;">🌿 ECOMONKS</h1>
-                <h2 style="color:#333; font-weight:300;">Your Verification Code</h2>
-                <div style="background:#f7fff9; padding:20px; border-radius:10px; margin:20px 0;">
-                    <div style="font-size:2.2rem; font-weight:700; letter-spacing:8px; color:#0b7d45; font-family:monospace;">
-                        {otp}
-                    </div>
+    """Send OTP via email. Returns (success, error_message)."""
+    html_content = f"""
+    <html>
+    <body style="font-family: Arial, sans-serif; background:#f4f4f4; padding:30px;">
+        <div style="max-width:450px; margin:auto; background:white; border-radius:12px; padding:30px; text-align:center;">
+            <h1 style="color:#0b7d45; margin-bottom:8px;">🌿 ECOMONKS</h1>
+            <h2 style="color:#333; font-weight:300;">Your Verification Code</h2>
+            <div style="background:#f7fff9; padding:20px; border-radius:10px; margin:20px 0;">
+                <div style="font-size:2.2rem; font-weight:700; letter-spacing:8px; color:#0b7d45; font-family:monospace;">
+                    {otp}
                 </div>
-                <p style="color:#666; font-size:0.9rem;">
-                    Enter this code to verify your email and complete your order.<br>
-                    This code expires in 5 minutes.
-                </p>
-                <hr style="border:none; border-top:1px solid #eee; margin:20px 0;">
-                <p style="color:#999; font-size:0.75rem;">
-                    If you didn't request this, please ignore this email.
-                </p>
             </div>
-        </body>
-        </html>
-        """
-
-        return send_email("🔐 ECOMONKS - Email Verification Code", email, html_content)
-
-    except Exception as e:
-        print(f"Email OTP error: {e}")
-        return False
+            <p style="color:#666; font-size:0.9rem;">
+                Enter this code to verify your email and complete your order.<br>
+                This code expires in 5 minutes.
+            </p>
+            <hr style="border:none; border-top:1px solid #eee; margin:20px 0;">
+            <p style="color:#999; font-size:0.75rem;">
+                If you didn't request this, please ignore this email.
+            </p>
+        </div>
+    </body>
+    </html>
+    """
+    return send_email("🔐 ECOMONKS - Email Verification Code", email, html_content)
 
 
 @csrf_exempt
@@ -1305,10 +1271,13 @@ def send_otp(request):
         cache_key = f"otp_{email}"
         cache.set(cache_key, otp, timeout=300)
 
-        if send_email_otp(email, otp):
+        ok, err = send_email_otp(email, otp)
+        if ok:
             return JsonResponse({'status': 'success', 'message': 'OTP sent to email'})
         else:
-            return JsonResponse({'status': 'error', 'message': 'Failed to send email'}, status=500)
+            # Surface the real reason instead of swallowing it, so the
+            # frontend can actually tell the user what went wrong.
+            return JsonResponse({'status': 'error', 'message': err or 'Failed to send email'}, status=500)
 
     except json.JSONDecodeError:
         return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
